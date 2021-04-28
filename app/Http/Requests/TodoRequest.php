@@ -14,11 +14,10 @@ class TodoRequest extends ApiRequest
      */
     public function authorize()
     {
-        if ($this->method() == Request::METHOD_POST) {
+        if ($this->method() == Request::METHOD_POST)
             return true;
-        }
         $todo = $this->route('todo');
-        return auth()->user()->id = $todo->user_id;
+        return auth()->user()->id == $todo->user_id;
     }
 
     /**
@@ -31,7 +30,7 @@ class TodoRequest extends ApiRequest
         return [
             'todo' => 'required|string|max:255',
             'label' => 'nullable|string',
-            'done' => 'nullable|boolean'
+            'done' => 'nullable|boolean',
         ];
     }
 }
